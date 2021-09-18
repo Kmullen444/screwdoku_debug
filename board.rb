@@ -4,7 +4,7 @@ class Board
   attr_reader :grid
 
   def self.empty_grid
-    @grid = Array.new(9) do
+    grid = Array.new(9) do
       Array.new(9) { Tile.new(0) }
     end
     grid
@@ -73,9 +73,9 @@ class Board
     x = (idx / 3) * 3
     y = (idx % 3) * 3
 
-    (x..x + 3).each do |j|
-      (y..y + 3).each do |i|
-        tiles << self[i, j]
+    (x...x + 3).each do |j|
+      (y...y + 3).each do |i|
+        tiles << self[[i, j]]
       end
     end
 
@@ -83,10 +83,10 @@ class Board
   end
 
   def squares
-    (0..8).to_a.each { |i| square(i) }
+    (0..8).to_a.map { |i| square(i) }
   end
 
-  private
+  # private
   attr_reader :grid
 
 end
