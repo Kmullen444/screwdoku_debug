@@ -1,7 +1,6 @@
 require_relative "board"
 require 'colorize'
 
-puts "Only contractors write code this bad.".yellow
 
 class SudokuGame
   def self.from_file(filename)
@@ -22,7 +21,6 @@ class SudokuGame
       begin
         pos = parse_pos(gets.chomp)
       rescue
-        # TODO: Google how to print the error that happened inside of a rescue statement.
         puts "Invalid position entered (did you use a comma?)"
         puts ""
 
@@ -83,5 +81,5 @@ class SudokuGame
 end
 
 
-game = SudokuGame.from_file("puzzles/sudoku1.txt")
+game = SudokuGame.from_file("puzzles/sudoku1-almost.txt")
 game.run
